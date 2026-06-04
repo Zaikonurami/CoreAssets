@@ -3,267 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPPlugins - Static Libraries Repo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>THE CORE</title>
+    <!-- Fuentes modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-bg: #1a1a2e;
-            --secondary-bg: #16213e;
-            --accent-color: #e94560;
-            --text-color: #e0e0e0;
-            --light-text: #ffffff;
-            --border-color: #0f3460;
-            --shadow-color: rgba(0, 0, 0, 0.4);
-            --button-hover: #b42840;
+            --bg-color: #0b0d13;
+            --text-primary: #ffffff;
+            --text-secondary: #8a94a6;
+            --accent-cyan: #00f2fe;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            background-color: var(--primary-bg);
-            color: var(--text-color);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             overflow: hidden;
             position: relative;
         }
 
-        body::before,
-        body::after {
+        /* Destello sutil en el fondo detrás del texto */
+        body::before {
             content: '';
             position: absolute;
-            background: var(--secondary-bg);
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        body::before {
             width: 300px;
             height: 300px;
-            top: -50px;
-            left: -50px;
-            background: var(--accent-color);
-            opacity: 0.2;
-        }
-
-        body::after {
-            width: 400px;
-            height: 400px;
-            bottom: -80px;
-            right: -80px;
-        }
-
-        .container {
-            background-color: var(--secondary-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            position: relative;
+            background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+            filter: blur(90px);
+            opacity: 0.15;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 1;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
         }
 
-        .container::before,
-        .container::after {
+        /* Contenedor del contenido (Sin cuadro de fondo) */
+        .container {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem 3.5rem;
+            text-align: center;
+            max-width: 90%;
+            width: 460px;
+        }
+
+        /* Líneas modulares de las esquinas enmarcando el texto */
+        .container::before, .container::after {
             content: '';
             position: absolute;
-            background-color: rgba(233, 69, 96, 0.1);
-            border-radius: 5px;
-            transform: rotate(45deg);
-            opacity: 0.5;
-            z-index: -1;
-        }
-
-        .container::before {
-            width: 60px;
-            height: 60px;
-            top: -30px;
-            left: -30px;
-        }
-
-        .container::after {
-            width: 80px;
-            height: 80px;
-            bottom: -40px;
-            right: -40px;
-            background-color: rgba(15, 52, 96, 0.2);
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5em;
-            font-weight: 700;
-            color: var(--light-text);
-            letter-spacing: -2px;
-        }
-
-        .logo-wp {
-            color: var(--accent-color);
-            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
-        }
-
-        .logo-plugins {
-            color: var(--light-text);
-        }
-
-        .main-content {
-            margin-bottom: 40px;
-        }
-
-        .description {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            color: var(--text-color);
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .plugins-list {
-            background-color: var(--primary-bg);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            border: 1px solid var(--border-color);
-        }
-
-        .plugins-list h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5em;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .plugins-list ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .plugins-list li {
-            font-size: 1em;
-            padding: 8px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-        }
-
-        .plugins-list li:last-child {
-            border-bottom: none;
-        }
-
-        .call-to-action {
-            margin-top: 25px;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--light-text);
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
-        }
-
-        .button:hover {
-            background-color: var(--button-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: var(--text-color);
+            width: 14px;
+            height: 14px;
+            border-color: var(--accent-cyan);
+            border-style: solid;
             opacity: 0.7;
         }
+        /* Esquina superior izquierda */
+        .container::before {
+            top: 0;
+            left: 0;
+            border-width: 1px 0 0 1px;
+        }
+        /* Esquina inferior derecha */
+        .container::after {
+            bottom: 0;
+            right: 0;
+            border-width: 0 1px 1px 0;
+        }
 
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.8em;
-            }
-            .container {
-                padding: 30px;
-            }
-            .plugins-list h2 {
-                font-size: 1.3em;
-            }
-            .plugins-list li {
-                font-size: 0.95em;
-            }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Indicador de estado */
+        .status-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-cyan);
+            opacity: 0.8;
+            background: rgba(0, 242, 254, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 242, 254, 0.12);
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px var(--accent-cyan); }
+            100% { transform: scale(0.9); opacity: 0.6; }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 2.2em;
-                letter-spacing: -1px;
-            }
             .container {
-                padding: 20px;
-                border-radius: 10px;
+                padding: 2rem 1.5rem;
             }
-            .plugins-list h2 {
-                font-size: 1.1em;
-            }
-            .plugins-list li {
-                font-size: 0.9em;
+            h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <header class="header">
-            <h1 class="logo">
-                <span class="logo-wp">WP</span><span class="logo-plugins">Plugins</span>
-            </h1>
-        </header>
-        <main class="main-content">
-            <p class="description">
-                Just a repository to import and adapt WordPress plugins for use in static websites, providing essential functionality without the complexity of a full CMS.
-            </p>
-
-            <div class="plugins-list">
-                <h2>Available Plugins</h2>
-                <ul>
-                    <li>Revolution Slider <span style="color: var(--accent-color);">version 6.7.38</span></li>
-                    </ul>
-                    <li>Fockawesome Pro <span style="color: var(--accent-color);">version 7.2.0</span></li>
-                    </ul>
-            </div>
-
-            <div class="call-to-action">
-                <a href="https://github.com/Zaikonurami/WPPlugins" target="_blank" rel="noopener noreferrer" class="button">
-                    Explore on GitHub
-                </a>
-            </div>
-        </main>
-        <footer class="footer">
-            <p>&copy; 2026 WPPlugins. Powered by Zaiko.Works</p>
-        </footer>
+        <h1>THE CORE</h1>
+        <p>Just my website's serving cdn</p>
+        
+        <div class="status-dot">
+            <span class="dot"></span>
+            <span>Online</span>
+        </div>
     </div>
+
 </body>
 </html>
