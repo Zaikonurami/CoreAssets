@@ -1,8 +1,8 @@
 /*
-* FockAwesome 7.2.0 - https://fockawesome.tech
+* FockAwesome 7.3.0 - https://fockawesome.sbs
 *
-* This file is a copillation of ALL FA 7.2.0 CSS files. AND WEBFONTS.
-* FULLY NULLED BY Z∆IKO - https://zaiko.software
+* This file is a copillation of ALL FA 7.3.0 CSS files. AND WEBFONTS.
+* FULLY NULLED BY Z∆IKO - https://zaiko.apartments
 */
 
 /* Import all that shit for only use one file */
@@ -20,8 +20,10 @@
 @import "./jelly-fill-regular.css";
 @import "./jelly-regular.css";
 @import "./light.css";
+@import "./mosaic-solid.css";
 @import "./notdog-duo-solid.css";
 @import "./notdog-solid.css";
+@import "./pixel-regular.css";
 @import "./regular.css";
 @import "./sharp-duotone-light.css";
 @import "./sharp-duotone-regular.css";
@@ -39,4 +41,5 @@
 @import "./utility-duo-semibold.css";
 @import "./utility-fill-semibold.css";
 @import "./utility-semibold.css";
+@import "./vellum-solid.css";
 @import "./whiteboard-semibold.css";
