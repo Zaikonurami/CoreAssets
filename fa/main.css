@@ -1,12 +1,11 @@
 /*
-* FockAwesome 7.3.0 - https://fockawesome.sbs
+* FockAwesome 7.3.1 - https://fockawesome-site.xyz
 *
-* This file is a copillation of ALL FA 7.3.0 CSS files. AND WEBFONTS.
-* FULLY NULLED BY Z∆IKO - https://zaiko.apartments
+* This file is a copillation of ALL FA 7.3.1 CSS files. AND WEBFONTS.
+* FULLY NULLED BY Z∆IKO - https://zaikonulls.site
 */
 
 /* Import all that shit for only use one file */
-@import "./fontawesome.css";
 @import "./all.css";
 @import "./brands.css";
 @import "./chisel-regular.css";
@@ -15,6 +14,7 @@
 @import "./duotone-thin.css";
 @import "./duotone.css";
 @import "./etch-solid.css";
+@import "./fontawesome.css";
 @import "./graphite-thin.css";
 @import "./jelly-duo-regular.css";
 @import "./jelly-fill-regular.css";
@@ -33,6 +33,8 @@
 @import "./sharp-regular.css";
 @import "./sharp-solid.css";
 @import "./sharp-thin.css";
+@import "./slab-duo-regular.css";
+@import "./slab-press-duo-regular.css";
 @import "./slab-press-regular.css";
 @import "./slab-regular.css";
 @import "./solid.css";
